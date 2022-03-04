@@ -976,6 +976,7 @@ namespace LogAnalyzer
                          "" : Util.GetStringHexFromByte(localFrame.DstAddr, 0, localFrame.DstAddr.Length, "", true);
             ProtoLocal_North.GetFrameTypeAndColor(localFrame, out strFrameType, out frameColor);
 
+            row.BeginEdit();
             row["序号"] = (dtLog.Rows.Count + 1).ToString("D6");
             row["时间"] = dt.ToString("yyyy-MM-dd HH:mm:ss");
             row["类别"] = strLogType;
@@ -983,12 +984,12 @@ namespace LogAnalyzer
             row["源地址"] = strSrcAddr;
             row["目的地址"] = strDstAddr;
             row["帧类型"] = strFrameType;
-
+            row.EndEdit();
             dtLog.Rows.Add(row);
             dgvLog.Rows[dgvLog.Rows.Count - 1].DefaultCellStyle.ForeColor = frameColor;
             //dgvLog.FirstDisplayedScrollingRowIndex = dgvLog.RowCount - 1;
 
-            AddToStationData(dt, logData);
+            //AddToStationData(dt, logData);
         }
 
         // 解析plcrec.log
@@ -2215,6 +2216,7 @@ namespace LogAnalyzer
             {
                 tStrpLabel.Text = msg;
                 tStrpLabel.ForeColor = fgColor;
+                statusBar.Refresh();
             }
         }
         #endregion 
@@ -2332,6 +2334,7 @@ namespace LogAnalyzer
 
         private void btFolderSelct_Click(object sender, EventArgs e)
         {
+            openFileDlg.Title = "请选择 plccom.log 所在目录的任意文件";
 
             if (DialogResult.OK != openFileDlg.ShowDialog() || openFileDlg.FileName == "")
             {
@@ -2343,6 +2346,8 @@ namespace LogAnalyzer
             if(Directory.EnumerateFiles(logPath, "plccom.log", SearchOption.TopDirectoryOnly).Count() > 0
                 && Directory.EnumerateFiles(logPath, "plcrec.log", SearchOption.TopDirectoryOnly).Count() > 0)
             {
+                DateTime startTime = DateTime.Now;
+
                 string exePath = Path.GetDirectoryName(Application.ExecutablePath);
                 Util.ExecuteWindowsCmd(exePath + "\\merge_plccomlog.bat", logPath, exePath);
 
@@ -2350,6 +2355,8 @@ namespace LogAnalyzer
                 {
                     return;
                 }
+
+                string unpack = (DateTime.Now - startTime).TotalMilliseconds + "ms";
 
                 _isLogLoading = true;
 
@@ -2370,7 +2377,7 @@ namespace LogAnalyzer
                     cnt++;
                     if(cnt % 5000 == 0)
                     {
-                        //dgvLog.FirstDisplayedScrollingRowIndex = dgvLog.RowCount - 1;
+                        ShowStatus("载入日志中。。 " + cnt, Color.Green);
                     }
                 }
 
@@ -2378,24 +2385,31 @@ namespace LogAnalyzer
 
                 dgvLog.FirstDisplayedScrollingRowIndex = dgvLog.RowCount - 1;
 
-                ShowStatus("载入日志完成", Color.Green);
+                string total = (DateTime.Now - startTime).TotalMilliseconds + "ms";
+
+                ShowStatus("载入日志完成 " + cnt + "unpack:" + unpack + " " + "total:" + total, Color.Green);
 
                 _isLogLoading = false;
 
-                combStationList.Items.Clear();
-                for (int i = 0; i < _stationList.Count; i++)
-                {
-                    if (_stationList.ElementAt(i).CenterAddr != null)
-                    {
-                        combStationList.Items.Add(_stationList.ElementAt(i).CenterAddr);
-                    }
-                }
+                //combStationList.Items.Clear();
+                //for (int i = 0; i < _stationList.Count; i++)
+                //{
+                    //if (_stationList.ElementAt(i).CenterAddr != null)
+                    //{
+                   //     combStationList.Items.Add(_stationList.ElementAt(i).CenterAddr);
+                    //}
+                //}
 
             }
             else
             {
                 ShowStatus("请选择正确的日志路径\r\n", Color.Red);
             }
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -68,10 +68,7 @@
             this.btShowStationData = new System.Windows.Forms.Button();
             this.combStationList = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.grpLogMgr2 = new System.Windows.Forms.GroupBox();
-            this.txtPath = new System.Windows.Forms.TextBox();
             this.btFolderSelct = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtKeyWord = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dgvLog = new System.Windows.Forms.DataGridView();
@@ -111,12 +108,14 @@
             this.statusBar = new System.Windows.Forms.StatusStrip();
             this.tStrpLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tStrpProgress = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.rtbLogText = new System.Windows.Forms.RichTextBox();
             this.treeProtocol = new System.Windows.Forms.TreeView();
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDlg = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -132,12 +131,12 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            this.grpLogMgr2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).BeginInit();
             this.ctMenuLogList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dsLog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtLog)).BeginInit();
             this.statusBar.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -152,6 +151,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.grpNetAnalysis);
             this.splitContainer1.Panel1.Controls.Add(this.grpLogMgr);
             this.splitContainer1.Panel1.Controls.Add(this.grpPortSet);
@@ -175,11 +175,11 @@
             this.grpNetAnalysis.Controls.Add(this.btLoadNetInfo);
             this.grpNetAnalysis.Controls.Add(this.btSaveNetInfo);
             this.grpNetAnalysis.Controls.Add(this.btReadNetInfo);
-            this.grpNetAnalysis.Location = new System.Drawing.Point(4, 269);
+            this.grpNetAnalysis.Location = new System.Drawing.Point(4, 334);
             this.grpNetAnalysis.Margin = new System.Windows.Forms.Padding(0);
             this.grpNetAnalysis.Name = "grpNetAnalysis";
             this.grpNetAnalysis.Padding = new System.Windows.Forms.Padding(4);
-            this.grpNetAnalysis.Size = new System.Drawing.Size(222, 493);
+            this.grpNetAnalysis.Size = new System.Drawing.Size(222, 428);
             this.grpNetAnalysis.TabIndex = 0;
             this.grpNetAnalysis.TabStop = false;
             this.grpNetAnalysis.Text = "台区分析";
@@ -187,27 +187,27 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 22);
+            this.label5.Location = new System.Drawing.Point(7, 22);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 12);
+            this.label5.Size = new System.Drawing.Size(89, 12);
             this.label5.TabIndex = 3;
-            this.label5.Text = "最近一次组网信息";
+            this.label5.Text = "最近组网信息：";
             // 
             // treeNwkAnalysis
             // 
             this.treeNwkAnalysis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeNwkAnalysis.Location = new System.Drawing.Point(-5, 64);
+            this.treeNwkAnalysis.Location = new System.Drawing.Point(-5, 43);
             this.treeNwkAnalysis.Margin = new System.Windows.Forms.Padding(0);
             this.treeNwkAnalysis.Name = "treeNwkAnalysis";
-            this.treeNwkAnalysis.Size = new System.Drawing.Size(227, 429);
+            this.treeNwkAnalysis.Size = new System.Drawing.Size(227, 385);
             this.treeNwkAnalysis.TabIndex = 0;
             // 
             // btLoadNetInfo
             // 
             this.btLoadNetInfo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btLoadNetInfo.Location = new System.Drawing.Point(179, 38);
+            this.btLoadNetInfo.Location = new System.Drawing.Point(178, 17);
             this.btLoadNetInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btLoadNetInfo.Name = "btLoadNetInfo";
             this.btLoadNetInfo.Size = new System.Drawing.Size(36, 22);
@@ -219,7 +219,7 @@
             // btSaveNetInfo
             // 
             this.btSaveNetInfo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btSaveNetInfo.Location = new System.Drawing.Point(134, 38);
+            this.btSaveNetInfo.Location = new System.Drawing.Point(134, 17);
             this.btSaveNetInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btSaveNetInfo.Name = "btSaveNetInfo";
             this.btSaveNetInfo.Size = new System.Drawing.Size(37, 22);
@@ -232,7 +232,7 @@
             // 
             this.btReadNetInfo.Enabled = false;
             this.btReadNetInfo.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btReadNetInfo.Location = new System.Drawing.Point(81, 38);
+            this.btReadNetInfo.Location = new System.Drawing.Point(92, 17);
             this.btReadNetInfo.Margin = new System.Windows.Forms.Padding(4);
             this.btReadNetInfo.Name = "btReadNetInfo";
             this.btReadNetInfo.Size = new System.Drawing.Size(39, 22);
@@ -263,7 +263,7 @@
             this.grpLogMgr.Size = new System.Drawing.Size(220, 170);
             this.grpLogMgr.TabIndex = 0;
             this.grpLogMgr.TabStop = false;
-            this.grpLogMgr.Text = "日志管理";
+            this.grpLogMgr.Text = "主模块Flash日志";
             // 
             // chkAutoSave
             // 
@@ -561,7 +561,6 @@
             this.splitContainer3.Panel1.Controls.Add(this.btShowStationData);
             this.splitContainer3.Panel1.Controls.Add(this.combStationList);
             this.splitContainer3.Panel1.Controls.Add(this.label7);
-            this.splitContainer3.Panel1.Controls.Add(this.grpLogMgr2);
             this.splitContainer3.Panel1.Controls.Add(this.txtKeyWord);
             this.splitContainer3.Panel1.Controls.Add(this.label6);
             this.splitContainer3.Panel1.Controls.Add(this.dgvLog);
@@ -609,44 +608,15 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "集中器地址";
             // 
-            // grpLogMgr2
-            // 
-            this.grpLogMgr2.Controls.Add(this.txtPath);
-            this.grpLogMgr2.Controls.Add(this.btFolderSelct);
-            this.grpLogMgr2.Controls.Add(this.label8);
-            this.grpLogMgr2.Location = new System.Drawing.Point(22, 95);
-            this.grpLogMgr2.Name = "grpLogMgr2";
-            this.grpLogMgr2.Size = new System.Drawing.Size(222, 170);
-            this.grpLogMgr2.TabIndex = 5;
-            this.grpLogMgr2.TabStop = false;
-            this.grpLogMgr2.Text = "日志管理";
-            // 
-            // txtPath
-            // 
-            this.txtPath.Location = new System.Drawing.Point(31, 48);
-            this.txtPath.Multiline = true;
-            this.txtPath.Name = "txtPath";
-            this.txtPath.Size = new System.Drawing.Size(185, 60);
-            this.txtPath.TabIndex = 2;
-            // 
             // btFolderSelct
             // 
-            this.btFolderSelct.Location = new System.Drawing.Point(31, 116);
+            this.btFolderSelct.Location = new System.Drawing.Point(17, 22);
             this.btFolderSelct.Name = "btFolderSelct";
-            this.btFolderSelct.Size = new System.Drawing.Size(63, 23);
+            this.btFolderSelct.Size = new System.Drawing.Size(99, 23);
             this.btFolderSelct.TabIndex = 1;
-            this.btFolderSelct.Text = "导入日志";
+            this.btFolderSelct.Text = "导入plccom日志";
             this.btFolderSelct.UseVisualStyleBackColor = true;
             this.btFolderSelct.Click += new System.EventHandler(this.btFolderSelct_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(29, 29);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "文件位置";
             // 
             // txtKeyWord
             // 
@@ -956,8 +926,9 @@
             this.statusBar.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tStrpLabel,
-            this.tStrpProgress});
-            this.statusBar.Location = new System.Drawing.Point(1, 102);
+            this.tStrpProgress,
+            this.toolStripStatusLabel1});
+            this.statusBar.Location = new System.Drawing.Point(1, 100);
             this.statusBar.Name = "statusBar";
             this.statusBar.Size = new System.Drawing.Size(855, 23);
             this.statusBar.TabIndex = 1;
@@ -979,6 +950,12 @@
             this.tStrpProgress.Name = "tStrpProgress";
             this.tStrpProgress.Size = new System.Drawing.Size(360, 19);
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // rtbLogText
             // 
             this.rtbLogText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -987,7 +964,7 @@
             this.rtbLogText.Location = new System.Drawing.Point(-3, -3);
             this.rtbLogText.Margin = new System.Windows.Forms.Padding(4);
             this.rtbLogText.Name = "rtbLogText";
-            this.rtbLogText.Size = new System.Drawing.Size(858, 101);
+            this.rtbLogText.Size = new System.Drawing.Size(858, 99);
             this.rtbLogText.TabIndex = 0;
             this.rtbLogText.Text = "";
             // 
@@ -999,7 +976,7 @@
             this.treeProtocol.Location = new System.Drawing.Point(-2, 33);
             this.treeProtocol.Margin = new System.Windows.Forms.Padding(0);
             this.treeProtocol.Name = "treeProtocol";
-            this.treeProtocol.Size = new System.Drawing.Size(267, 730);
+            this.treeProtocol.Size = new System.Drawing.Size(265, 730);
             this.treeProtocol.TabIndex = 1;
             // 
             // label3
@@ -1015,6 +992,16 @@
             // openFileDlg
             // 
             this.openFileDlg.FileName = "openFileDlg";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btFolderSelct);
+            this.groupBox1.Location = new System.Drawing.Point(4, 272);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(222, 51);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "新联集中器日志";
             // 
             // LogManager
             // 
@@ -1044,14 +1031,13 @@
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
-            this.grpLogMgr2.ResumeLayout(false);
-            this.grpLogMgr2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).EndInit();
             this.ctMenuLogList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dsLog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtLog)).EndInit();
             this.statusBar.ResumeLayout(false);
             this.statusBar.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1132,11 +1118,10 @@
         private System.Windows.Forms.Button btFindKeyWord;
         private System.Windows.Forms.ComboBox combStationList;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox grpLogMgr2;
         private System.Windows.Forms.Button btFolderSelct;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btShowStationData;
-        private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDlg;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

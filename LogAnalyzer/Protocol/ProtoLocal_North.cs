@@ -186,7 +186,7 @@ namespace ElectricPowerDebuger.Protocol
             new CmdExplain(0x14, "路由数据抄读",    2, "路由请求集中器时钟",           Color.Black, ExplainRouteDataRead_RequestConcentratorClock),
             new CmdExplain(0x14, "路由数据抄读",    3, "请求依通信延时修正通信数据",   Color.Black, ExplainRouteDataRead_RequstAdjustCommData),
 
-            new CmdExplain(0x15, "文件传输",    1, "文件传输方式1",                   Color.Black, ExplainFileTransfer_TransferModeOne),
+            new CmdExplain(0x15, "文件传输",    1, "文件传输",                         Color.Black, ExplainFileTransfer_TransferModeOne),
 
             new CmdExplain(0x20, "水表上报",    1, "启动抄收水表数据",              Color.Red, ExplainWaterMeterReport_ReadWaterMeterDataStart),  /* 北网扩展 */
             new CmdExplain(0x20, "水表上报",    2, "停止抄收水表数据",              Color.Red, ExplainWaterMeterReport_ReadWaterMeterDataStop),  /* 北网扩展 */

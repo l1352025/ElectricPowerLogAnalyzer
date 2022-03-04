@@ -123,9 +123,9 @@ namespace ElectricPowerDebuger.Protocol
             //  DI3 ~ DI1 表示数据项类型，DI0表示序号：00 -- 当前， 01 ~ N -- 上1次 ~上N次记录
             //------------  DI3   DI2   DI1   DI0    数据项名称            解析函数  -------------
             // 00 - 电能量
-            new DataExplain(0x00, 0x00, 0x00, 0x00, "组合电能",             ExplainElectricEnergyData),
+            new DataExplain(0x00, 0x00, 0x00, 0x00, "组合总电能",            ExplainElectricEnergyData),
             new DataExplain(0x00, 0x00, 0xFF, 0x00, "组合电能数据块",          ExplainElectricEnergyData),      // XXXXXX.XX  x N
-            new DataExplain(0x00, 0x01, 0x00, 0x00, "正向电能",             ExplainElectricEnergyData),
+            new DataExplain(0x00, 0x01, 0x00, 0x00, "正向总电能",            ExplainElectricEnergyData),
             new DataExplain(0x00, 0x01, 0xFF, 0x00, "正向电能数据块",          ExplainElectricEnergyData),      // XXXXXX.XX  x N
             new DataExplain(0x00, 0x02, 0x00, 0x00, "反向总电能",            ExplainElectricEnergyData),
             new DataExplain(0x00, 0x02, 0xFF, 0x00, "反向电能数据块",          ExplainElectricEnergyData),      // XXXXXX.XX  x N
